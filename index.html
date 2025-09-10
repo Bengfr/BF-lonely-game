@@ -16,6 +16,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
             display: flex;
+            flex-direction: column; /* Stack items vertically */
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -30,6 +31,10 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             text-align: center;
             border: 1px solid #e5e7eb;
+        }
+        .scoreboard-btn {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
         }
         .game-title {
             font-family: 'Pixelify Sans', sans-serif;
@@ -128,10 +133,13 @@
     </style>
 </head>
 <body>
+    <button class="btn btn-info text-white scoreboard-btn mb-3" data-bs-toggle="modal" data-bs-target="#scoreboardModal">
+        🏆 Scoreboard
+    </button>
     <div class="game-container">
-        <h1 class="game-title">BF Lonely Game</h1>
+        <h1 class="game-title">Guess the number game</h1>
         <p class="game-instructions">
-            I'm thinking of a 4-digit number. Digits can repeat.
+            Guess the 4-digit number. Digits can repeat.
         </p>
 
         <!-- Input for the user's guess -->
@@ -157,6 +165,58 @@
         </ul>
     </div>
 
+    <!-- Scoreboard Modal -->
+    <div class="modal fade" id="scoreboardModal" tabindex="-1" aria-labelledby="scoreboardModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scoreboardModalLabel">🏆 Top Scores</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted small">You can edit this table directly in the HTML to update the scores.</p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Player</th>
+                                <th scope="col">Guesses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Manually enter scores here -->
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Namo</td>
+                                <td>6 Tries</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Ohn</td>
+                                <td>14 Tries</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Beng</td>
+                                <td>Haven't won yet😭</td>
+                            </tr>
+                            <!-- <tr>
+                                <th scope="row">4</th>
+                                <td>.</td>
+                                <td>.</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // DOM elements
         const guessInput = document.getElementById('guessInput');
@@ -309,4 +369,6 @@
 
 </body>
 </html>
+
+
 
